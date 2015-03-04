@@ -19,7 +19,8 @@
         rotate: false,
         setHash: false,
         animation: 'default',
-        patientAnimation: false,
+        patientAnimationTabs: true,
+        patientAnimationAccordion: false,
         duration: 500,
         scrollToAccordion: false,
         activate: function(){},
@@ -375,6 +376,9 @@
 
         if(oTab !== undefined) {
 
+            if (_this.getState() == 'accordion') var patientAnimation = _this.options.patientAnimationAccordion;
+            else if (_this.getState() == 'tabs') var patientAnimation = _this.options.patientAnimationTabs;
+            c(patientAnimation)
             // Deactivate tab
             oTab.active = false;
             // Set default class to the tab button
@@ -385,7 +389,7 @@
                 // Set default class to the accordion tab button and tab panel
                 oTab.accordionTab.removeClass(_this.options.classes.stateActive).addClass(_this.options.classes.stateDefault);
                 oTab.panel.removeClass(_this.options.classes.stateActive).addClass(_this.options.classes.stateDefault);
-            }, !_this.options.patientAnimation);
+            }, !patientAnimation);
 
             this.$element.trigger('tabs-deactivate', oTab);
         }

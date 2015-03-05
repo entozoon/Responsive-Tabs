@@ -378,7 +378,6 @@
 
             if (_this.getState() == 'accordion') var patientAnimation = _this.options.patientAnimationAccordion;
             else if (_this.getState() == 'tabs') var patientAnimation = _this.options.patientAnimationTabs;
-            c(patientAnimation)
             // Deactivate tab
             oTab.active = false;
             // Set default class to the tab button
